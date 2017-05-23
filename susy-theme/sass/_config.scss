@@ -1,0 +1,32 @@
+/* 
+    Created on : May 17, 2017, 10:05:02 PM
+    Author     : irina
+*/
+$susy:  (
+    flow: ltr,// layout direction
+    output: float, // uses CSS floats
+    math: fluid, // fluid | static use math:static with fixed column width
+    container: 1200px, // width or auto 
+    container-position: center, //| ex. 100px gives you grid margin
+    column-width: false, // false or pixel width
+    columns: 10,
+    gutters: 1, // the gutters are the same size as a column
+    gutter-position: split, // before | after | split | inside | inside-static (requires column-width)
+    global-box-sizing: border-box, // border-box
+);
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+ }
+
+/* custom layouts */
+$wide_layout: (
+    container: 100%, // width or auto
+    columns:14,
+    math:fluid,
+    output:float,
+    gutter-position: inside,
+);
+

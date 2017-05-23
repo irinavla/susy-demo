@@ -1,0 +1,72 @@
+@import "../bower_components/susy/sass/susy";
+@import "config";
+@import "mixins";
+@import "variables";
+@import "helpers";
+@import "general";
+
+
+.basic-grid {
+@include container;
+    article {
+      @include span (2); //  2 columns of 10
+       @include susy-breakpoint(600px 1024px) {
+           @include span (5); // 5 columns of 10
+           &:first-child {
+             @include span (10);  
+           }
+       }
+      @include susy-breakpoint(320px 599px) { // if you use only one arg it's min-width
+           @include span (10);
+       }
+    }
+}
+
+.wide-grid {
+    @include flexbox();
+    @include flex-wrap(wrap);
+    @include with-layout($wide_layout) {
+        article {
+            @include span (2 of 14);
+            @include susy-breakpoint(768px 1100px) { // min-width and max-width
+                @include span (3 of 12);
+                &:nth-child(-n+3) {
+                   @include span (4 of 12); 
+                }
+            }
+            @include susy-breakpoint(320px 767px) { // min-width and max-width
+                @include span (7 of 14);
+                &:last-child {
+                    @include span (14);
+                }
+            }
+        }
+    }
+}
+
+.single {
+    .article-layout {
+        @include container;
+    }
+    .entry-content {
+        img {
+            @extend .img-responsive;
+        }
+    }
+    article {
+        @include span (3.5 of 5 first); // split the container into 5 columns instead of 10
+    }
+    aside {
+        @include span (1.5 of 5 last);
+    }
+    @include susy-breakpoint (320px 768px) {
+        article,
+        aside {
+            @include span (5 of 5);
+        }
+        article {
+            border-bottom: 1px solid #fff;
+            padding-bottom: 50px;
+        }
+    }
+}

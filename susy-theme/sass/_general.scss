@@ -1,0 +1,222 @@
+body {
+    background: $dark-grey;
+    color: #fff;
+    padding:0;
+    margin:0;
+    font-family: $body-font;
+    @include font-size(15);
+    position:relative;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight:normal;
+    $font-family: $title-font;
+}
+
+h1 {
+   @include font-size(30);
+}
+
+h2 {
+    @include font-size(24);
+}
+
+h3 {
+    @include font-size(17);
+}
+
+a {
+    text-decoration:none;
+    color:inherit;
+    @include transition(all 0.3s ease);
+}
+
+ul, ol {
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+/* == BUTTONS == */
+.susy-btn {
+    display:inline-block;
+    text-transform: uppercase;
+    @include font-size(10);
+    padding: 10px 14px;
+    border: 1px solid $pink;
+    background:transparent;
+    color:$pink;
+    opacity:1;
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+.link {
+    color:$dark-pink;
+    opacity:1;
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+.menu-icon {
+    width: 35px;
+    height: 25px;
+    position: relative;
+    margin: 0 auto;
+    @include transform(rotate(0deg));
+    @include transition(0.5s ease-in-out);
+    cursor: pointer;
+    span {
+        display: block;
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        background: $dark-pink;
+        opacity: 1;
+        left: 0;  
+        @include transform(rotate(0deg));
+        @include transition(0.25s ease-in-out);
+        @include transform-origin(left, center);
+        &:nth-child(1) {
+            top: 0px;
+        }
+        &:nth-child(2) {
+            top: 10px;
+        }
+        &:nth-child(3) {
+            top: 20px;
+        }
+    }
+    &.open {
+        span {
+            &:nth-child(1) {
+                top: 0px;
+                left: 8px;
+                @include transform(rotate(45deg));
+            }
+            &:nth-child(2) {
+                width: 0%;
+                opacity: 0;
+            }
+            &:nth-child(3) {
+                top: 25px;
+                left: 8px;
+                @include transform(rotate(-45deg));
+            }  
+        }
+    } 
+}
+
+nav {
+    position:fixed;
+    z-index:99999;
+    width:100%;
+    top:0;
+    background:rgba(255, 255, 255, 0.9);
+    @include box-shadow(0 0 3px #434343);
+    padding:5px;
+    @include flexbox();
+    @include align-items(center);
+    .toggle-menu {
+        display:none;
+    }
+    .logo {
+        @include span (3 of 12 first);
+        text-align:left;
+    }
+    .menu {
+        @include span (9 of 12 at 4);
+        text-align:right;
+    }
+    @include susy-breakpoint (320px 850px) {
+        .menu {
+            display:none;
+        }    
+        .logo {
+            @include span (10 of 12 first); 
+        }
+        .toggle-menu {
+            display:block;
+            position:absolute;
+            right:20px;
+            top:17px;
+        }
+    }
+}
+
+main {
+    padding: 10vh 0;
+}
+
+.logo {
+    height: 50px;
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:left center;
+    position:relative;
+    @include flexbox(); 
+    @include align-items(center);
+    @include font-size(25);
+    text-transform:uppercase;
+    color: $dark-pink;
+    a {
+       position:absolute;
+       width:100%;
+       height:100%;
+    }
+}
+.menu {
+    .menu-item {
+        display:inline-block;
+        text-transform:uppercase;
+        a {
+            color: $dark-grey;
+            padding: 0 15px;
+            &:last-child {
+                padding: 0 0 0 15px;
+            }
+        }
+    }
+}
+
+header {
+    height: 70vh;
+    background: #fff;
+    padding:60px 20px 20px;
+    @include flexbox();
+    @include flex-direction(column);
+    @include align-items(center);
+    @include justify-content(center);
+    color:$dark-grey;
+    text-align:center;
+    @include susy-breakpoint(320px 600px ) {
+        height:100vh;
+    }
+}
+
+.main-title {
+    @include font-size(50);
+    margin: 0 0 20px 0;
+    @include susy-breakpoint(320px 768px) {
+       @include font-size(30);
+    }
+}
+.tagline {
+    @include font-size(25);
+}
+
+article {
+    padding-bottom:30px;
+    margin-bottom:20px;
+}
+
+.entry-title {
+    color: $pink;
+    font-family: $title-font;
+}
+
+.entry-excerpt {
+    margin-bottom: 20px;
+}

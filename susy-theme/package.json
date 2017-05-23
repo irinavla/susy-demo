@@ -1,0 +1,20 @@
+{
+  "name": "susy-theme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Irina",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-sass": "^2.0.0",
+    "sass-loader": "^6.0.5"
+  },
+  "dependencies": {
+    "bourbon": "^4.3.4"
+  }
+}
